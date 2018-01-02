@@ -12,6 +12,7 @@
 		35424BD41FFB633800C168B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35424BD21FFB633800C168B9 /* Main.storyboard */; };
 		35424BD61FFB633800C168B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35424BD51FFB633800C168B9 /* Assets.xcassets */; };
 		35424BD91FFB633800C168B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35424BD71FFB633800C168B9 /* LaunchScreen.storyboard */; };
+		35424BE11FFBA1A000C168B9 /* StitchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35424BE01FFBA1A000C168B9 /* StitchHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		35424BD51FFB633800C168B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35424BD81FFB633800C168B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35424BDA1FFB633800C168B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35424BE01FFBA1A000C168B9 /* StitchHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StitchHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				35424BCE1FFB633800C168B9 /* AppDelegate.swift */,
 				35424BD01FFB633800C168B9 /* ViewController.swift */,
+				35424BE01FFBA1A000C168B9 /* StitchHelper.swift */,
 				35424BD21FFB633800C168B9 /* Main.storyboard */,
 				35424BD51FFB633800C168B9 /* Assets.xcassets */,
 				35424BD71FFB633800C168B9 /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			files = (
 				35424BD11FFB633800C168B9 /* ViewController.swift in Sources */,
 				35424BCF1FFB633800C168B9 /* AppDelegate.swift in Sources */,
+				35424BE11FFBA1A000C168B9 /* StitchHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

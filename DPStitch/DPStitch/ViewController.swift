@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -36,22 +38,29 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         } else {
             print("not")
         }
-
-        // 2.获取到照片
         
-        // 3.合并照片
+    }
+    
+    @IBAction func saveToPhotoLibrary(_ sender: UIButton) {
         
     }
     
     // MARK: UIImagePickerControllerDelegate
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let image = info["UIImagePickerControllerEditedImage"]
+        let image = info["UIImagePickerControllerEditedImage"] as! UIImage
+        self.addImage(image)
         
         //  关闭相片选择器
         self.dismiss(animated: true) {
             
         }
         
+        
+        
+    }
+    
+    func addImage(_ image: UIImage) {
+        let imageView 
     }
 
 
