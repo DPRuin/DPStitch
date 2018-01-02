@@ -8,17 +8,52 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    
+    @IBAction func stitchBtn(_ sender: UIButton) {
+
+        // 判断照片是否可用
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.sourceType = .photoLibrary
+            imagePicker.delegate = self
+            imagePicker.allowsEditing = true
+            
+            self.present(imagePicker, animated: true, completion: {
+                print("model")
+            })
+        } else {
+            print("not")
+        }
+
+        // 2.获取到照片
+        
+        // 3.合并照片
+        
+    }
+    
+    // MARK: UIImagePickerControllerDelegate
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let image = info["UIImagePickerControllerEditedImage"]
+        
+        //  关闭相片选择器
+        self.dismiss(animated: true) {
+            
+        }
+        
+    }
+
 
 
 }
