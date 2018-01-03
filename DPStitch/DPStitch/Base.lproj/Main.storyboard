@@ -18,20 +18,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngX-8J-u2S">
-                                <rect key="frame" x="56" y="190" width="100" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="pick"/>
-                                <connections>
-                                    <action selector="stitchBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SQB-i7-kcG"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XBr-I2-9gZ">
-                                <rect key="frame" x="220" y="201" width="32" height="30"/>
+                                <rect key="frame" x="90" y="398" width="32" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="save"/>
                                 <connections>
                                     <action selector="saveToPhotoLibrary:" destination="BYZ-38-t0r" eventType="touchUpInside" id="edd-Nb-r14"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngX-8J-u2S">
+                                <rect key="frame" x="137" y="144" width="100" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="pick"/>
+                                <connections>
+                                    <action selector="stitchBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SQB-i7-kcG"/>
                                 </connections>
                             </button>
                         </subviews>
