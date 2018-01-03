@@ -7,14 +7,49 @@
 //
 
 import UIKit
+import Photos
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+let StitchesAlbumTitle = "Stitches"
+
+class ViewController: UIViewController, DXPhotoPickerControllerDelegate {
     
+    var images: [PHAsset] = []
+    private var stitchesCollection: PHAssetCollection!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // Fetch stitches album
+        // 1
+        let options = PHFetchOptions()
+        options.predicate = NSPredicate(format: "title = %@", StitchesAlbumTitle)
+        let collections = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .albumRegular, options: options)
+        
+        //2
+        if collections.count > 0 {
+            //Album exists
+            self.stitchesCollection = collections[0]
+        } else {
+            // Create the album
+            // 1
+            var assetPlaceholder: PHObjectPlaceholder?
+            PHPhotoLibrary.shared().performChanges({
+                let changeRequest = PHAssetCollectionChangeRequest.creationRequestForAssetCollection(withTitle: StitchesAlbumTitle)
+                assetPlaceholder = changeRequest.placeholderForCreatedAssetCollection
+            }, completionHandler: { (isSuccess, error) in
+                if !isSuccess {
+                    print("Failed to create album")
+                    print(error!)
+                    return
+                }
+                let collections = PHAssetCollection.fetchAssetCollections(withLocalIdentifiers: [assetPlaceholder!.localIdentifier], options: nil)
+                if collections.count > 0 {
+                    self.stitchesCollection = collections[0]
+                }
+                
+            })
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -25,43 +60,35 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func stitchBtn(_ sender: UIButton) {
 
-        // 判断照片是否可用
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            let imagePicker = UIImagePickerController()
-            imagePicker.sourceType = .photoLibrary
-            imagePicker.delegate = self
-            imagePicker.allowsEditing = true
-            
-            self.present(imagePicker, animated: true, completion: {
-                print("model")
-            })
-        } else {
-            print("not")
-        }
+        let picker = DXPhotoPickerController()
+        picker.photoPickerDelegate = self
+        self.present(picker, animated: true, completion: nil)
         
     }
     
     @IBAction func saveToPhotoLibrary(_ sender: UIButton) {
+        print("saveToPhotoLibrary")
+
         
-    }
-    
-    // MARK: UIImagePickerControllerDelegate
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let image = info["UIImagePickerControllerEditedImage"] as! UIImage
-        self.addImage(image)
-        
-        //  关闭相片选择器
-        self.dismiss(animated: true) {
-            
-        }
-        
+        StitchHelper.createNewStitchWith(assets: self.images, inCollection: self.stitchesCollection)
         
         
     }
     
-    func addImage(_ image: UIImage) {
-        let imageView 
+    func photoPickerDidCancel(photoPicker: DXPhotoPickerController) {
+        photoPicker.dismiss(animated: true, completion: nil)
     }
+    
+    func photoPickerController(photoPicker: DXPhotoPickerController?, sendImages: [PHAsset]?, isFullImage: Bool) {
+        photoPicker?.dismiss(animated: true, completion: nil)
+        
+        print("hhhhh\(String(describing: sendImages?.count))")
+        self.images = sendImages!
+
+        
+        
+    }
+
 
 
 

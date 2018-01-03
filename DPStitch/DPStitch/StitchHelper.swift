@@ -140,7 +140,7 @@ class StitchHelper: NSObject {
             
             let targetSize = CGSize(width: rect.width * deviceScale, height: rect.height * deviceScale)
             PHImageManager.default().requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: options, resultHandler: { (result, _) in
-                if result!.size != targetSize {
+                if result?.size != targetSize {
                     let cropppedResult = self.cropImageToCenterSquare(image: result!, size: targetSize)
                     cropppedResult.draw(in: rect)
                 } else {

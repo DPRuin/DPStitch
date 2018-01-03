@@ -21,7 +21,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngX-8J-u2S">
                                 <rect key="frame" x="56" y="190" width="100" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="start stitch"/>
+                                <state key="normal" title="pick"/>
                                 <connections>
                                     <action selector="stitchBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SQB-i7-kcG"/>
                                 </connections>
